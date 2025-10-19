@@ -18,4 +18,10 @@ router.get('/', userController.getAll);
 // READ - Buscar usuário por ID
 router.get('/:id', userController.getById);
 
+// UPDATE - Atualizar usuário
+router.put('/:id', userController.update);
+
+// DELETE - Remover usuário
+router.delete('/:id', userController.remove);
+
 export default router;

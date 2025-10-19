@@ -3,14 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "dev": "nodemon src/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "format": "prettier --write .",
-    "format:check": "prettier --check ."
-  },
+"scripts": {
+  "start": "node src/server.js",
+  "dev": "nodemon src/server.js",
+  "lint": "eslint .",
+  "lint:fix": "eslint . --fix",
+  "format": "prettier --write .",
+  "format:check": "prettier --check .",
+  "test": "vitest run",
+  "test:watch": "vitest",
+  "test:coverage": "vitest run --coverage"
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jeferson-developer/aula2.git"
@@ -33,6 +36,8 @@
     "eslint-plugin-prettier": "^5.5.4",
     "nodemon": "^3.1.7",
     "prettier": "^3.6.2",
-    "prisma": "^6.17.1"
+    "prisma": "^6.17.1",
+    "supertest": "^7.1.4",
+    "vitest": "^3.2.4"
   }
 }
