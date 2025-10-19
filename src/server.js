@@ -1,6 +1,7 @@
 // src/server.js
 import express from 'express';
-import prisma from './config/database.js';
+import prisma from './config/database.js'; 
+import userRoutes from './routes/userRoutes.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -40,36 +41,8 @@ app.get('/health', async (req, res) => {
   });
 });
 
-// Rota básica para usuários (professores)
-app.get('/users', async (req, res) => {
-
-  try {
-    const usuarios = await prisma.user.findMany({
-      select: {
-        id: true,
-        nome: true,
-        email: true,
-        papel: true,
-        foto: true,
-        createdAt: true,
-      },
-    });
-
-    res.status(200).json({
-      success: true,
-      data: usuarios,
-      total: usuarios.length,
-    });
-  } catch (error) {
-    console.error('Erro ao buscar usuários:', error);
-    res.status(500).json({
-      success: false,
-      message: 'Erro ao buscar usuários',
-      error: error.message,
-    });
-  }
-
-});
+// Rotas da API
+app.use('/users', userRoutes); // <--
 
 // Middleware de tratamento de rotas não encontradas
 app.use((req, res) => {
