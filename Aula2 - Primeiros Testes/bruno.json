@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "Aula2 - Primeiros Testes",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
